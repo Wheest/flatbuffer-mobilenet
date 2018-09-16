@@ -1,0 +1,21 @@
+#+TITLE: MobileNet Flatbuffers
+#+STARTUP: content
+
+This repo is a MWE for a forum question.
+
+Attempting to build a system that can parse ~.tflite~ files and give me the structure and weights of models.
+
+
+#+BEGIN_SRC sh
+FLATBUFF_INC=~/tools/cpp/flatbuffers/include
+
+mkdir models
+cd models
+wget https://storage.googleapis.com/mobilenet_v2/checkpoints/mobilenet_v2_1.4_224.tgz
+tar xf mobilenet_v2_1.4_224.tgz
+
+cd ..
+mkdir _build
+cd _build
+cmake .. -DFLATBUFF_INCLUDE=$FLATBUFF_INC && make
+#+END_SRC
